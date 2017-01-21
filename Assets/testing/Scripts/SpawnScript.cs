@@ -68,7 +68,8 @@ public class SpawnScript : MonoBehaviour {
         defeatedEnemies = new List<GameObject>();
         for (int i = 0; i < maxSpawnedEnemies; i++)
         {
-            enemiesNotSpawned.Insert(i, Instantiate(spawnedEnemy, new Vector3(i * 100000.0f, 0, 0), Quaternion.identity));
+            enemiesNotSpawned.Insert(i, Instantiate(spawnedEnemy, new Vector3(i * 20.0f, 0, 0), Quaternion.identity));
+            enemiesNotSpawned[i].SetActive(false);
         }
     }
 
@@ -84,8 +85,10 @@ public class SpawnScript : MonoBehaviour {
             GameObject spawningEnemy = enemiesNotSpawned[0];
             enemiesSpawned.Add(spawningEnemy);
             enemiesNotSpawned.Remove(spawningEnemy);
+            spawningEnemy.SetActive(true);
             spawningEnemy.transform.position = position;
-        } else
+        }
+        else
         {
             Debug.Log("Max spawnable enemies reached.");
         }
@@ -106,6 +109,7 @@ public class SpawnScript : MonoBehaviour {
         {
             defeatedEnemies.RemoveAt(0);
         }
+        enemiesNotSpawned.ForEach(gameObject => gameObject.SetActive(false));
     }
 
     /// <summary>

@@ -14,7 +14,8 @@ public class MenuControl : MonoBehaviour {
 
     private void Start()
     {
-        ComputerScript.menuActive = menu.activeSelf;
+        ComputerScript.menuActive = false;
+        menu.SetActive(false);
     }
 
     /// <summary>
