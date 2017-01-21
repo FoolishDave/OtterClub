@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.16788375, g: 0.21073635, b: 0.28994125, a: 1}
+  m_IndirectSpecularColor: {r: 0.1678835, g: 0.2107358, b: 0.28994045, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -340,6 +340,35 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
+--- !u!21 &237209648
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: PixelSnap
+      second: 0
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &254306872
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,9 +445,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 2.27, z: -0.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+
   m_Father: {fileID: 563957349}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 57.14, y: 0, z: 0}
+
 --- !u!1001 &457158843
 Prefab:
   m_ObjectHideFlags: 0
@@ -461,11 +492,13 @@ Prefab:
     - target: {fileID: 3380982, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_Mesh
       value: 
+
       objectReference: {fileID: 1389389193}
     - target: {fileID: 2348914, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 600843253}
+
     m_RemovedComponents:
     - {fileID: 11420968, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
     - {fileID: 11411836, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
@@ -814,7 +847,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-32918
+  m_Name: pb_Mesh11194
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -1722,6 +1755,7 @@ MonoBehaviour:
   padPressed: 0
   padTouched: 0
   gripped: 0
+
 --- !u!114 &1233243863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1733,6 +1767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f57b3e9fe1ce97e43beff846ca2410da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+
 --- !u!1 &1299133804
 GameObject:
   m_ObjectHideFlags: 0
@@ -2051,6 +2086,7 @@ MonoBehaviour:
   BorderMaterial: {fileID: 0}
   BorderAlpha: 1
   _BorderHeight: 0.2
+
 --- !u!43 &1389389193
 Mesh:
   m_ObjectHideFlags: 0
@@ -2179,6 +2215,7 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
+
 --- !u!4 &1489798196 stripped
 Transform:
   m_PrefabParentObject: {fileID: 420908, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
