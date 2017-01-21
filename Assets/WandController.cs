@@ -68,7 +68,6 @@ public class WandController : MonoBehaviour {
         collided.tag = "Grabbed";
         Rigidbody colRigid = collided.GetComponent<Rigidbody>();
         colRigid.isKinematic = true;
-        colRigid.velocity = Vector3.zero;
     }
 
     void TriggerUnpulled(object sender, ClickedEventArgs e)
