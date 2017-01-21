@@ -11,6 +11,7 @@ public class MenuControl : MonoBehaviour {
     /// The menu to toggle
     /// </summary>
     public GameObject menu;
+<<<<<<< HEAD
 
     private void Start()
     {
@@ -19,6 +20,13 @@ public class MenuControl : MonoBehaviour {
     }
 
     /// <summary>
+=======
+	void Start()
+    {
+        menu.SetActive(false);
+    }
+	/// <summary>
+>>>>>>> master
     /// Checks if the escape key has been pressed to enable/disable the menu
     /// </summary>
     void Update () {
