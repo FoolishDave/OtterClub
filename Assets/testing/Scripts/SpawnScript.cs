@@ -33,6 +33,9 @@ public class SpawnScript : MonoBehaviour {
     /// </summary>
     public long _maxSpawnedEnemies;
 
+    /// <summary>
+    /// The property for getting and setting the max spawned enemies
+    /// </summary>
     public long maxSpawnedEnemies
     {
         get { return _maxSpawnedEnemies; }
