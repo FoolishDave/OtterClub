@@ -65,6 +65,7 @@ public class WandController : MonoBehaviour {
             }
         } else oldParent = collided.transform.parent;
         collided.transform.SetParent(transform);
+        collided.tag = "Grabbed";
         Rigidbody colRigid = collided.GetComponent<Rigidbody>();
         colRigid.isKinematic = true;
         colRigid.velocity = Vector3.zero;
@@ -76,6 +77,7 @@ public class WandController : MonoBehaviour {
         collided.transform.SetParent(oldParent);
         Rigidbody colRig = collided.GetComponent<Rigidbody>();
         colRig.isKinematic = false;
+        collided.tag = "Draggable";
         colRig.velocity = SteamVR_Controller.Input((int)trackedController.controllerIndex).velocity;
         colRig.angularVelocity = SteamVR_Controller.Input((int)trackedController.controllerIndex).angularVelocity;
     }
