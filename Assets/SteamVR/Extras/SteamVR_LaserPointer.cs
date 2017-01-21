@@ -130,7 +130,7 @@ public class SteamVR_LaserPointer : MonoBehaviour
 
         if (controller != null && controller.triggerPressed)
         {
-            pointer.transform.localScale = new Vector3(thickness * 5f, thickness * 5f, dist);
+            //pointer.transform.localScale = new Vector3(thickness * 5f, thickness * 5f, dist);
         }
         else
         {
