@@ -1,9 +1,0 @@
-fileFormatVersion: 2
-guid: 0ac492e83ade61d4694d7dd621c59374
-ShaderImporter:
-  defaultTextures:
-  - _MainTex: {instanceID: 0}
-  - _AlphaMask: {fileID: 2800000, guid: b6944b8ec29ad124c9ebbe7b111fdfd5, type: 3}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 

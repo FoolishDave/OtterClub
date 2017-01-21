@@ -24,7 +24,7 @@ public class SpawnScript : MonoBehaviour {
 
     public long totalEnemiesSpawned
     {
-        get { return totalEnemiesSpawned; }
+        get { return _totalEnemiesSpawned; }
         set { _totalEnemiesSpawned = value; }
     }
 
@@ -78,10 +78,17 @@ public class SpawnScript : MonoBehaviour {
     /// <param name="position">Vector3 at which enemy should be spawned</param>
 	public void spawnEnemey(Vector3 position)
     {
-        GameObject spawningEnemy = enemiesNotSpawned[0];
-        enemiesSpawned.Add(spawningEnemy);
-        enemiesNotSpawned.Remove(spawningEnemy);
-
+        if (totalEnemiesSpawned < maxSpawnedEnemies)
+        {
+            totalEnemiesSpawned++;
+            GameObject spawningEnemy = enemiesNotSpawned[0];
+            enemiesSpawned.Add(spawningEnemy);
+            enemiesNotSpawned.Remove(spawningEnemy);
+            spawningEnemy.transform.position = position;
+        } else
+        {
+            Debug.Log("Max spawnable enemies reached.");
+        }
     }
 
     /// <summary>
