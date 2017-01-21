@@ -5,6 +5,7 @@ using UnityEngine;
 public class WandController : MonoBehaviour {
 
     public GameObject collided;
+    public GameObject holding;
     public Transform oldParent;
     SteamVR_TrackedController trackedController;
 
@@ -50,33 +51,41 @@ public class WandController : MonoBehaviour {
         if (collided == null) return;
         if (collided.tag.Equals("Grabbed"))
         {
+            Debug.Log("Attempted handoff");
             WandController wand;
             if (transform == leftController.transform)
             {
                 wand = rightController.GetComponent<WandController>();
                 oldParent = wand.oldParent;
-                wand.collided = null;
+                wand.holding = null;
             }
             else
             {
                 wand = leftController.GetComponent<WandController>();
                 oldParent = wand.oldParent;
-                wand.collided = null;
+                wand.holding = null;
             }
-        } else oldParent = collided.transform.parent;
-        collided.transform.SetParent(transform);
+        }
+        else
+        {
+            oldParent = collided.transform.parent;
+        }
+        collided.transform.SetParent(gameObject.transform);
+        collided.tag = "Grabbed";
+        holding = collided.gameObject;
         Rigidbody colRigid = collided.GetComponent<Rigidbody>();
         colRigid.isKinematic = true;
-        colRigid.velocity = Vector3.zero;
     }
 
     void TriggerUnpulled(object sender, ClickedEventArgs e)
     {
-        if (collided == null) return;
-        collided.transform.SetParent(oldParent);
-        Rigidbody colRig = collided.GetComponent<Rigidbody>();
+        if (holding == null) return;
+        holding.transform.SetParent(oldParent);
+        Rigidbody colRig = holding.GetComponent<Rigidbody>();
         colRig.isKinematic = false;
+        collided.tag = "Draggable";
         colRig.velocity = SteamVR_Controller.Input((int)trackedController.controllerIndex).velocity;
         colRig.angularVelocity = SteamVR_Controller.Input((int)trackedController.controllerIndex).angularVelocity;
+        holding = null;
     }
 }
