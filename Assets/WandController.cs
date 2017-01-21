@@ -82,7 +82,7 @@ public class WandController : MonoBehaviour {
         holding.transform.SetParent(oldParent);
         Rigidbody colRig = holding.GetComponent<Rigidbody>();
         colRig.isKinematic = false;
-        collided.tag = "Draggable";
+        holding.tag = "Draggable";
         colRig.velocity = SteamVR_Controller.Input((int)trackedController.controllerIndex).velocity;
         colRig.angularVelocity = SteamVR_Controller.Input((int)trackedController.controllerIndex).angularVelocity;
         holding = null;
