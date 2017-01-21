@@ -68,7 +68,7 @@ public class SpawnScript : MonoBehaviour {
         defeatedEnemies = new List<GameObject>();
         for (int i = 0; i < maxSpawnedEnemies; i++)
         {
-            enemiesNotSpawned.Insert(i, Instantiate(spawnedEnemy, new Vector3(i * 2.0f, 0, 0), Quaternion.identity));
+            enemiesNotSpawned.Insert(i, Instantiate(spawnedEnemy, new Vector3(i * 100000.0f, 0, 0), Quaternion.identity));
         }
     }
 
@@ -76,7 +76,7 @@ public class SpawnScript : MonoBehaviour {
     /// Spawns an enemy at provided position.
     /// </summary>
     /// <param name="position">Vector3 at which enemy should be spawned</param>
-	public void spawnEnemey(Vector3 position)
+	public void spawnEnemy(Vector3 position)
     {
         if (totalEnemiesSpawned < maxSpawnedEnemies)
         {

@@ -11,14 +11,21 @@ public class MenuControl : MonoBehaviour {
     /// The menu to toggle
     /// </summary>
     public GameObject menu;
-	
-	/// <summary>
+
+    private void Start()
+    {
+        ComputerScript.menuActive = menu.activeSelf;
+    }
+
+    /// <summary>
     /// Checks if the escape key has been pressed to enable/disable the menu
     /// </summary>
-	void Update () {
+    void Update () {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            menu.SetActive(!menu.activeSelf);
+            bool newState = !menu.activeSelf;
+            ComputerScript.menuActive = newState;
+            menu.SetActive(newState);
         }
 	}
 }
