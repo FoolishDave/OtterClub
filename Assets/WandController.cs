@@ -41,7 +41,6 @@ public class WandController : MonoBehaviour {
         {
             collided.transform.SetParent(oldParent);
             collided.GetComponent<Rigidbody>().isKinematic = false;
-            collided.GetComponent<Rigidbody>().velocity = GetComponentInChildren<Rigidbody>().velocity * 5f;
         }
         collided = null;
     }
