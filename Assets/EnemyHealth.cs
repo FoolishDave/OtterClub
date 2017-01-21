@@ -22,6 +22,11 @@ public class EnemyHealth : MonoBehaviour {
                 hitController = col.GetComponentInParent<SteamVR_TrackedController>();
             if (col == critical)
                 damageMult = 2.5f;
+            float velocity = SteamVR_Controller.Input((int)hitController.controllerIndex).velocity.sqrMagnitude;
+            if (velocity < 10)
+                damageMult *= velocity / 10;
+            else if (velocity > 20)
+                damageMult *= velocity / 10;
             ApplyDamage(baseDamage * damageMult);
         }
     }
