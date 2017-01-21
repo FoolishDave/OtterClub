@@ -6,7 +6,12 @@ TagManager:
   tags:
   - Draggable
   - Grabbed
+<<<<<<< HEAD
+  - Spawnable
+  - Unity~Chan<3
+=======
   - Weapon
+>>>>>>> master
   layers:
   - Default
   - TransparentFX
