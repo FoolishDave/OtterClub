@@ -19,8 +19,6 @@ public class AgentControlScript : MonoBehaviour {
     private NavMeshAgent agent;
     private LocomotionSimpleAgent locoAgent;
 
-    private GameObject target;
-
     public static float distance = 2f;
 
     /// <summary>
@@ -53,21 +51,6 @@ public class AgentControlScript : MonoBehaviour {
     public void SetMovementTarget(Vector3 position)
     {
         agent.destination = position;
-    }
-
-    /// <summary>
-    /// Update the enemy target location if the player keeps moving, attack if within range
-    /// </summary>
-    private void FixedUpdate()
-    {
-        if (target != null)
-        {
-            agent.destination = target.transform.position;
-            if (Vector3.Distance(transform.position, target.transform.position) < acceptableDistance)
-            {
-                attack();
-            }
-        }
     }
 
     /// <summary>
