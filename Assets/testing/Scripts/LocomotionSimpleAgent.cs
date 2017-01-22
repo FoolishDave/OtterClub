@@ -169,6 +169,7 @@ public class LocomotionSimpleAgent : MonoBehaviour
             {
                 if (anim.GetBool("Attacking"))
                 {
+                    PlayerHealth.playerHealth.health -= EnemyHealth.enemyDamage;
                     Debug.Log("Stay Away from Senpai, Nyaa~");
                 }
                 anim.SetBool("Attacking", false);
