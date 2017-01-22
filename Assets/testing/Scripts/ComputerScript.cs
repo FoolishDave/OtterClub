@@ -15,6 +15,8 @@ public class ComputerScript : MonoBehaviour {
     [SerializeField]
     public float attackDistance = 2f;
 
+    private GameObject playerCharacter;
+
     /// <summary>
     /// The selected enemy to control
     /// </summary>
@@ -63,6 +65,7 @@ public class ComputerScript : MonoBehaviour {
         {
             RaycastHit rayHit;
             bool hit = false;
+            // Check if there is a hit
             if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out rayHit, 100))
             {
                 hit = true;

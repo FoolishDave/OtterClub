@@ -12,6 +12,17 @@ public class EnemyHealth : MonoBehaviour {
 
     public SteamVR_TrackedController hitController;
 
+    public float _health
+    {
+        get { return health; }
+        set { health = value; }
+    }
+    public float _baseDamage
+    {
+        get { return baseDamage; }
+        set { baseDamage = value; }
+    }
+
 	void OnTriggerEnter(Collider col)
     {
         float damageMult = 1f;

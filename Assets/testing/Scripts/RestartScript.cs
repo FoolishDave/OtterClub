@@ -14,6 +14,6 @@ public class RestartScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void TaskOnClick () {
-        Application.LoadLevel("ComputerTest");
+        Application.LoadLevel("ComputerTest ui");
 	}
 }

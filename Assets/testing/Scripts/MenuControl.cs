@@ -12,16 +12,18 @@ public class MenuControl : MonoBehaviour {
     /// </summary>
     public GameObject menu;
 
+
+
     /// <summary>
     /// On launch ensure the menu is set to inactive
     /// </summary>
-	void Start()
+
+    private void Start()
     {
         ComputerScript.menuActive = false;
         menu.SetActive(false);
     }
 
-	/// <summary>
     /// Checks if the escape key has been pressed to enable/disable the menu
     /// </summary>
     void Update () {
