@@ -8,6 +8,8 @@ public class ComputerScript : MonoBehaviour {
     public Camera camera;
     public static bool menuActive;
 
+    private GameObject playerCharacter;
+
     /// <summary>
     /// The selected enemy to control
     /// </summary>
@@ -15,6 +17,7 @@ public class ComputerScript : MonoBehaviour {
 
 	void Start () {
         selectedUnit = new List<AgentControlScript>();
+        playerCharacter = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
 
@@ -53,11 +56,24 @@ public class ComputerScript : MonoBehaviour {
         else if (Input.GetMouseButtonDown(1) && !ComputerScript.menuActive)
         {
             RaycastHit rayHit;
-
+            bool hit = false;
+            // Check if there is a hit
             if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out rayHit, 100))
             {
+                hit = true;
+            }
+
+            if (hit && rayHit.collider.gameObject.tag == "Player")
+            {
+                selectedUnit.ForEach(enemy => enemy.target = playerCharacter);
+            }
+            else if (hit)
+            {
                 Vector3 newPosition = rayHit.point;
-                selectedUnit.ForEach(enemy => enemy.setTarget(newPosition));
+                selectedUnit.ForEach(enemy => {
+                    enemy.SetMovementTarget(newPosition);
+                    enemy.target = null;
+                    });
             }
         }
     }
