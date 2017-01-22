@@ -12,6 +12,12 @@ public class MenuControl : MonoBehaviour {
     /// </summary>
     public GameObject menu;
 
+
+
+    /// <summary>
+    /// On launch ensure the menu is set to inactive
+    /// </summary>
+
     private void Start()
     {
         ComputerScript.menuActive = false;
