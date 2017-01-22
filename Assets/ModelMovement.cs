@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ModelMovement : MonoBehaviour {
 
-    public GameObject head;
+    //public GameObject head;
     public GameObject body;
 
     void Update()

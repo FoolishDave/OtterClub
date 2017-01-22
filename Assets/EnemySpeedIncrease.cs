@@ -9,7 +9,6 @@ public class EnemySpeedIncrease : MonoBehaviour {
     /// Button observed
     /// </summary>
     public Button yourButton;
-    public EnemyHealth eHealth;
     public int baseCost;
 
     // Use this for initialization
@@ -25,7 +24,7 @@ public class EnemySpeedIncrease : MonoBehaviour {
     {
 
         //Debug.Log(sp._maxSpawnedEnemies);
-        EnemyHealth.speed += 2;
+        EnemyHealth.speed += 0.5f;
         baseCost = (int)((double)baseCost * 1.5);
     }
 }

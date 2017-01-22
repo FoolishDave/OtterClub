@@ -6,6 +6,8 @@ using UnityEngine;
 /// </summary>
 public class SpawnScript : MonoBehaviour {
 
+    public static SpawnScript spawnScript;
+
     /// <summary>
     /// The prefab to be spawned when an enemy should be spawned
     /// </summary>
@@ -42,7 +44,6 @@ public class SpawnScript : MonoBehaviour {
         get { return _maxSpawnedEnemies; }
         set
         {
-            _maxSpawnedEnemies = value;
             if (value > _maxSpawnedEnemies)
             {
                 for (int i = 0; i < value - _maxSpawnedEnemies; i++)
@@ -59,6 +60,7 @@ public class SpawnScript : MonoBehaviour {
                     enemiesNotSpawned.Remove(notSpawnable);
                 }
             }
+            _maxSpawnedEnemies = value;
         }
     }
 
@@ -67,6 +69,7 @@ public class SpawnScript : MonoBehaviour {
     /// </summary>
     private void Start()
     {
+        SpawnScript.spawnScript = this;
         enemiesNotSpawned = new List<GameObject>();
         enemiesSpawned = new List<GameObject>();
         defeatedEnemies = new List<GameObject>();
@@ -105,6 +108,7 @@ public class SpawnScript : MonoBehaviour {
     /// </summary>
     public void resetEnemies()
     {
+        totalEnemiesSpawned = 0;
         enemiesNotSpawned.AddRange(enemiesSpawned);
         enemiesNotSpawned.AddRange(defeatedEnemies);
         while (enemiesSpawned.Count > 0)
@@ -116,6 +120,12 @@ public class SpawnScript : MonoBehaviour {
             defeatedEnemies.RemoveAt(0);
         }
         enemiesNotSpawned.ForEach(gameObject => gameObject.SetActive(false));
+    }
+
+    public void killEnemy(GameObject enemy)
+    {
+        enemiesSpawned.Remove(enemy);
+        defeatedEnemies.Add(enemy);
     }
 
     /// <summary>

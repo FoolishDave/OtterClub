@@ -6,7 +6,7 @@ public class EnemyHealth : MonoBehaviour {
 
     public static float maxHealth = 100;
     public static float enemyDamage = 20;
-    public static float speed = 5;
+    public static float speed = 7.5f;
 
     public float health;
     public float baseDamage;
@@ -60,7 +60,8 @@ public class EnemyHealth : MonoBehaviour {
         if (health <= 0f)
         {
             VrGoldManager.playerKilledEnemy(speed, enemyDamage, maxHealth);
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
+            SpawnScript.spawnScript.killEnemy(this.gameObject);
         }
 
     }

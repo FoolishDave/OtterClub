@@ -7,7 +7,7 @@ public class CashChecker : MonoBehaviour {
     Text moneyText;
 	// Use this for initialization
 	void Start () {
-        moneyText = GetComponent<Text>();
+        moneyText = GetComponentInChildren<Text>();
 	}
 	
 	// Update is called once per frame

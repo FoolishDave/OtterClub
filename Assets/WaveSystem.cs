@@ -8,18 +8,21 @@ public class WaveSystem : MonoBehaviour {
     private int waveNumber;
     private bool VRReady;
     private bool PCReady;
-    private float timer;
-    private bool timing = false;
+    private float downTimer;
+    private bool downTiming = false;
     public GameObject VrShop;
     public GameObject PcShop;
     public ReadyButton vrReadyButton;
     public GameObject PcWaveText;
     public ComputerScript PcScript;
+    public SpawnScript spawnScript;
+    public PCGoldManager pcGold;
 
     void Start()
     {
         waveNumber = 0;
-        timer = 20f;
+        downTimer = 20f;
+        PCGoldManager._baseGold = 20;
         DownTime();
     }
 
@@ -42,29 +45,31 @@ public class WaveSystem : MonoBehaviour {
 
     void BeginWave()
     {
+        pcGold.preWave();
         PcScript.spawningEnabled = true;
         PcWaveText.GetComponent<Text>().text = "Wave: " + waveNumber;
         VrShop.SetActive(false);
         PcShop.SetActive(false);
-        timing = false;
+        downTiming = false;
     }
 
     public void DownTime()
     {
+        
         PcScript.spawningEnabled = false;
-        timer = 100;
-        timing = true;
+        downTimer = 100;
+        downTiming = true;
         PCReady = false;
         VRReady = false;
         waveNumber++;
-        vrReadyButton.GetComponentInChildren<Text>().text = "Wave: " + waveNumber + "\nTime: " + timer;
-        PcWaveText.GetComponent<Text>().text = "Wave: " + waveNumber + "\nTime left: " + timer;
+        vrReadyButton.GetComponentInChildren<Text>().text = "Wave: " + waveNumber + "\nTime: " + downTimer;
+        PcWaveText.GetComponent<Text>().text = "Wave: " + waveNumber + "\nTime left: " + downTimer;
         SpawnShop();
     }
 
     public float TimeLeft()
     {
-        return timer;
+        return downTimer;
     }
 
     void SpawnShop()
@@ -75,15 +80,25 @@ public class WaveSystem : MonoBehaviour {
 
     void Update()
     {
-        if (timing)
+        if (downTiming)
         {
 
-            timer -= Time.deltaTime;
-            vrReadyButton.GetComponentInChildren<Text>().text = "Wave: " + waveNumber + "\nTime: " + (int) timer;
-            PcWaveText.GetComponent<Text>().text = "Wave: " + waveNumber + "\nTime left: " + (int) timer;
+            downTimer -= Time.deltaTime;
+            vrReadyButton.GetComponentInChildren<Text>().text = "Wave: " + waveNumber + "\nTime: " + (int) downTimer;
+            PcWaveText.GetComponent<Text>().text = "Wave: " + waveNumber + "\nTime left: " + (int) downTimer;
             //Debug.Log("Time left " + timer);
-            if (timer<=0)
+            if (downTimer<=0)
                 BeginWave();
+        } else
+        {
+            if (spawnScript._totalEnemiesSpawned == spawnScript.maxSpawnedEnemies)
+            {
+                if (GameObject.FindGameObjectsWithTag("Unity~Chan<3").Length==0)
+                {
+                    spawnScript.resetGame();
+                    DownTime();
+                }
+            }
         }
     }
 }
