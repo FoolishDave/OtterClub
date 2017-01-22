@@ -20,10 +20,22 @@ public class LocomotionSimpleAgent : MonoBehaviour
     public bool useCurves = true;               // Mecanimでカーブ調整を使うか設定する
                                                 // このスイッチが入っていないとカーブは使われない
     public float useCurvesHeight = 0.5f;        // カーブ補正の有効高さ（地面をすり抜けやすい時には大きくする）
+    
+    private bool _attacking;
+    public bool attacking
+    {
+        get { return _attacking; }
+        set { _attacking = value; }
+    }
 
     // 以下キャラクターコントローラ用パラメタ
     // 前進速度
-    public float forwardSpeed = 7.0f;
+    public float _forwardSpeed = 7.0f;
+    public float forwardSpeed
+    {
+        get { return _forwardSpeed; }
+        set { _forwardSpeed = value; }
+    }
     // 後退速度
     public float backwardSpeed = 2.0f;
     // 旋回速度
@@ -50,11 +62,12 @@ public class LocomotionSimpleAgent : MonoBehaviour
     static int locoState = Animator.StringToHash("Base Layer.Locomotion");
     static int jumpState = Animator.StringToHash("Base Layer.Jump");
     static int restState = Animator.StringToHash("Base Layer.Rest");
+    static int attkState = Animator.StringToHash("Base Layer.POSE26");
 
     // 初期化
     void Start()
     {
-
+        _attacking = false;
         agent = GetComponent<NavMeshAgent>();
         // Don’t update position automatically
         agent.updatePosition = false;
@@ -93,7 +106,7 @@ public class LocomotionSimpleAgent : MonoBehaviour
         //以下のvの閾値は、Mecanim側のトランジションと一緒に調整する
         if (v > 0.1)
         {
-            velocity *= forwardSpeed;       // 移動速度を掛ける
+            velocity *= _forwardSpeed;       // 移動速度を掛ける
         }
         else if (v < -0.1)
         {
@@ -133,6 +146,10 @@ public class LocomotionSimpleAgent : MonoBehaviour
             {
                 anim.SetBool("Rest", true);
             }
+            else if (_attacking)
+            {
+                anim.SetBool("Attacking", true);
+            }
         }
         // REST中の処理
         // 現在のベースレイヤーがrestStateの時
@@ -143,6 +160,13 @@ public class LocomotionSimpleAgent : MonoBehaviour
             if (!anim.IsInTransition(0))
             {
                 anim.SetBool("Rest", false);
+            }
+        }
+        else if (currentBaseState.nameHash == attkState)
+        {
+            if (!anim.IsInTransition(0))
+            {
+                anim.SetBool("Attacking", false);
             }
         }
     }

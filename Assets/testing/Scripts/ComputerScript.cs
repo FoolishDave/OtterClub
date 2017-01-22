@@ -7,6 +7,13 @@ public class ComputerScript : MonoBehaviour {
     public SpawnScript spawner;
     public Camera camera;
     public static bool menuActive;
+    private GameObject player;
+
+    /// <summary>
+    /// The attacking distance
+    /// </summary>
+    [SerializeField]
+    public float attackDistance = 2f;
 
     /// <summary>
     /// The selected enemy to control
@@ -15,6 +22,8 @@ public class ComputerScript : MonoBehaviour {
 
 	void Start () {
         selectedUnit = new List<AgentControlScript>();
+        player = GameObject.FindGameObjectWithTag("MainCamera");
+        AgentControlScript.distance = attackDistance;
     }
 
 
@@ -53,11 +62,28 @@ public class ComputerScript : MonoBehaviour {
         else if (Input.GetMouseButtonDown(1) && !ComputerScript.menuActive)
         {
             RaycastHit rayHit;
-
+            bool hit = false;
             if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out rayHit, 100))
             {
+                hit = true;
+            }
+
+            if (hit && rayHit.collider.gameObject.tag == "Player")
+            {
+                selectedUnit.ForEach(enemy => {
+                    enemy.setAttackTarget(player);
+                    enemy.setMovementTarget(player.transform.position);
+                    });
+            } else if (hit) {
                 Vector3 newPosition = rayHit.point;
-                selectedUnit.ForEach(enemy => enemy.setTarget(newPosition));
+                selectedUnit.ForEach(enemy => {
+                    enemy.setMovementTarget(newPosition);
+                    enemy.setAttackTarget(null);
+                    });
+            }
+            else
+            {
+                selectedUnit.ForEach(enemy => enemy.setAttackTarget(null));
             }
         }
     }
