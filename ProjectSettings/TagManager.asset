@@ -5,7 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Unity~Chan<3
+<<<<<<< HEAD
   - Weapon
+=======
+  - Spawnable
+  - Grabbed
+  - Draggable
+>>>>>>> refs/remotes/origin/master
   layers:
   - Default
   - TransparentFX

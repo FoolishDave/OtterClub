@@ -11,10 +11,10 @@ public class ComputerScript : MonoBehaviour {
     /// <summary>
     /// The selected enemy to control
     /// </summary>
-    public static List<GameObject> selectedUnit;
+    public static List<AgentControlScript> selectedUnit;
 
 	void Start () {
-        selectedUnit = new List<GameObject>();
+        selectedUnit = new List<AgentControlScript>();
     }
 
 
@@ -39,13 +39,26 @@ public class ComputerScript : MonoBehaviour {
             }
             else if (hit && rayHit.collider.gameObject.tag == "Unity~Chan<3" && !ComputerScript.menuActive)
             {
-                selectedUnit.Add(rayHit.collider.gameObject);
+                AgentControlScript acs = rayHit.collider.gameObject.GetComponent<AgentControlScript>();
+                if (!selectedUnit.Contains(acs))
+                {
+                    selectedUnit.Add(acs);
+                }
             }
             else
             {
                 selectedUnit.Clear();
             }
-            Debug.Log("The count is: " + selectedUnit.Count);
+        }
+        else if (Input.GetMouseButtonDown(1) && !ComputerScript.menuActive)
+        {
+            RaycastHit rayHit;
+
+            if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out rayHit, 100))
+            {
+                Vector3 newPosition = rayHit.point;
+                selectedUnit.ForEach(enemy => enemy.setTarget(newPosition));
+            }
         }
     }
 }
