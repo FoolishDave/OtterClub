@@ -59,7 +59,7 @@ public class EnemyHealth : MonoBehaviour {
         GetComponent<Rigidbody>().AddForce(controllerVelocity*10f);
         if (health <= 0f)
         {
-            VrGoldManager.playerKilledEnemy(_speed, _baseDamage, _health);
+            VrGoldManager.playerKilledEnemy(speed, enemyDamage, maxHealth);
             Destroy(this.gameObject);
         }
 

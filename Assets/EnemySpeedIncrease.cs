@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyHealthIncrease : MonoBehaviour {
+public class EnemySpeedIncrease : MonoBehaviour {
 
     /// <summary>
     /// Button observed
@@ -13,7 +13,8 @@ public class EnemyHealthIncrease : MonoBehaviour {
     public int baseCost;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         Button btn = yourButton.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
         baseCost = 300;
@@ -24,8 +25,7 @@ public class EnemyHealthIncrease : MonoBehaviour {
     {
 
         //Debug.Log(sp._maxSpawnedEnemies);
-        EnemyHealth.maxHealth += 50;
+        EnemyHealth.speed += 2;
         baseCost = (int)((double)baseCost * 1.5);
     }
-
 }

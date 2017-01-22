@@ -14,6 +14,7 @@ TagManager:
   - Grabbed
   - Spawnable
   - Head
+  - Shop
   layers:
   - Default
   - TransparentFX
