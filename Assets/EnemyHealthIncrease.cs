@@ -24,9 +24,7 @@ public class EnemyHealthIncrease : MonoBehaviour {
     {
 
         //Debug.Log(sp._maxSpawnedEnemies);
-        Debug.Log(eHealth._health);
-        eHealth._health=eHealth._health + 50;
-        Debug.Log(eHealth._health);
+        EnemyHealth.maxHealth += 50;
         baseCost = (int)((double)baseCost * 1.5);
     }
 

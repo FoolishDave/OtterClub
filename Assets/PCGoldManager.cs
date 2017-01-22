@@ -35,7 +35,7 @@ public class PCGoldManager : MonoBehaviour {
     /**<summary>
     Give alloted cash to spend on unit upgrades
     </summary>**/
-    void preWave ()
+    public void preWave ()
     {
         _pcGold += baseGold;
         _baseGold = (int)((double)_baseGold*_multiplier);

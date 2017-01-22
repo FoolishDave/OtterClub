@@ -9,7 +9,6 @@ public class EnemyDamageIncrease : MonoBehaviour {
     /// Button observed
     /// </summary>
     public Button yourButton;
-    public EnemyHealth eDamage;
     // Use this for initialization
     void Start () {
         Button btn = yourButton.GetComponent<Button>();
@@ -18,10 +17,7 @@ public class EnemyDamageIncrease : MonoBehaviour {
 
 
     void TaskOnClick()
-    {
-        
-        Debug.Log(eDamage._baseDamage);
-        eDamage._baseDamage = eDamage._baseDamage + 20;
-        Debug.Log(eDamage._baseDamage);
+    { 
+        EnemyHealth.enemyDamage += 20;
     }
 }

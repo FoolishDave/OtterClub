@@ -53,4 +53,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnedEnemy: {fileID: 100338, guid: 40046bae76ac54bffb59f14f47d9ba1b, type: 2}
   _totalEnemiesSpawned: 0
-  _maxSpawnedEnemies: 50
+  _maxSpawnedEnemies: 1

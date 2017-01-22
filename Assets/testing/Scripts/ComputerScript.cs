@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class ComputerScript : MonoBehaviour {
@@ -8,14 +7,13 @@ public class ComputerScript : MonoBehaviour {
     public Camera camera;
     public static bool menuActive;
     private GameObject player;
+    public bool spawningEnabled;
 
     /// <summary>
     /// The attacking distance
     /// </summary>
     [SerializeField]
     public float attackDistance = 2f;
-
-    private GameObject playerCharacter;
 
     /// <summary>
     /// The selected enemy to control
@@ -42,7 +40,7 @@ public class ComputerScript : MonoBehaviour {
             }
 
             // Check if a unity chan should be spawned
-            if (hit && rayHit.collider.gameObject.tag == "Spawnable" && rayHit.collider.gameObject.tag != "Unity~Chan<3")
+            if (hit && rayHit.collider.gameObject.tag == "Spawnable" && rayHit.collider.gameObject.tag != "Unity~Chan<3" && spawningEnabled)
             {
                 selectedUnit.Clear();
                 Vector3 newPosition = rayHit.point - new Vector3(0, 0.2f, 0);

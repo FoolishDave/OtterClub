@@ -5,7 +5,6 @@
 //
 using UnityEngine;
 using UnityEngine.AI;
-using System.Collections;
 
 // 必要なコンポーネントの列記
 [RequireComponent(typeof(Animator))]
@@ -14,7 +13,7 @@ using System.Collections;
 
 public class LocomotionSimpleAgent : MonoBehaviour
 {
-
+    public GameObject player; /// TODO: Make this take damage
     public float animSpeed = 1.5f;              // アニメーション再生速度設定
     public float lookSmoother = 3.0f;           // a smoothing setting for camera motion
     public bool useCurves = true;               // Mecanimでカーブ調整を使うか設定する
@@ -67,6 +66,7 @@ public class LocomotionSimpleAgent : MonoBehaviour
     // 初期化
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("MainCamera");
         _attacking = false;
         agent = GetComponent<NavMeshAgent>();
         // Don’t update position automatically
@@ -87,6 +87,7 @@ public class LocomotionSimpleAgent : MonoBehaviour
     // 以下、メイン処理.リジッドボディと絡めるので、FixedUpdate内で処理を行う.
     void FixedUpdate()
     {
+        forwardSpeed = EnemyHealth.speed;
         Vector3 worldDeltaPosition = agent.nextPosition - transform.position;
 
         float h = Vector3.Dot(transform.right, worldDeltaPosition);
@@ -166,6 +167,11 @@ public class LocomotionSimpleAgent : MonoBehaviour
         {
             if (!anim.IsInTransition(0))
             {
+                if (anim.GetBool("Attacking"))
+                {
+                    PlayerHealth.playerHealth.health -= EnemyHealth.enemyDamage;
+                    Debug.Log("Stay Away from Senpai, Nyaa~");
+                }
                 anim.SetBool("Attacking", false);
             }
         }
