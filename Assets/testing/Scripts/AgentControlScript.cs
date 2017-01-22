@@ -9,23 +9,13 @@ using UnityEngine.AI;
 public class AgentControlScript : MonoBehaviour {
 
     /// <summary>
-    /// Destination of the agent
-    /// </summary>
-    public Transform destination;
-
-    /// <summary>
     /// Agent nav mesh
     /// </summary>
     private NavMeshAgent agent;
 
-    /// <summary>
-    /// Agent Target
-    /// </summary>
-    public GameObject target;
-
     void Start()
     {
-        agent = gameObject.GetComponent<NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
     /// <summary>
@@ -34,7 +24,6 @@ public class AgentControlScript : MonoBehaviour {
     /// <param name="position">sets the target position</param>
     public void setTarget(Vector3 position)
     {
-        destination = target.transform;
-        agent.SetDestination(destination.position);
+        agent.destination = (position);
     }
 }
