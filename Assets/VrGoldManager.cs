@@ -20,4 +20,9 @@ public class VrGoldManager : MonoBehaviour {
     {
         return cash >= amt;
     }
+
+    public static void playerKilledEnemy(float speed, float damage, float health)
+    {
+
+    }
 }

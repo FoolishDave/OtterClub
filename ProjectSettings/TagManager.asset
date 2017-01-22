@@ -12,6 +12,8 @@ TagManager:
   - WallSpawn
   - Draggable
   - Grabbed
+  - Spawnable
+  - Head
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - PC
   - 
   - 
   - 

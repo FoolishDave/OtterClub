@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour {
 
+    public static float maxHealth = 100;
+    public static float enemyDamage = 20;
+    public static float speed = 5;
+
     public float health;
-    public float baseDamage; 
+    public float baseDamage;
 
     public Collider critical;
     public Collider normal;
@@ -21,6 +25,12 @@ public class EnemyHealth : MonoBehaviour {
     {
         get { return baseDamage; }
         set { baseDamage = value; }
+    }
+
+    public float _speed
+    {
+        get { return speed; }
+        set { speed = value; }
     }
 
 	void OnTriggerEnter(Collider col)
@@ -49,6 +59,7 @@ public class EnemyHealth : MonoBehaviour {
         GetComponent<Rigidbody>().AddForce(controllerVelocity*10f);
         if (health <= 0f)
         {
+            VrGoldManager.playerKilledEnemy(_speed, _baseDamage, _health);
             Destroy(this.gameObject);
         }
 
