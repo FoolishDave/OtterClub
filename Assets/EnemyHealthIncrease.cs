@@ -10,11 +10,13 @@ public class EnemyHealthIncrease : MonoBehaviour {
     /// </summary>
     public Button yourButton;
     public EnemyHealth eHealth;
+    public int baseCost;
 
     // Use this for initialization
     void Start () {
         Button btn = yourButton.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
+        baseCost = 300;
     }
 
 
@@ -25,6 +27,7 @@ public class EnemyHealthIncrease : MonoBehaviour {
         Debug.Log(eHealth._health);
         eHealth._health=eHealth._health + 50;
         Debug.Log(eHealth._health);
+        baseCost = (int)((double)baseCost * 1.5);
     }
 
 }
