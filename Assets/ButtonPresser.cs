@@ -38,7 +38,8 @@ public class ButtonPresser : MonoBehaviour {
 
     void TriggerPull(object sender, ClickedEventArgs e)
     {
-        hovered.SendMessage("OnPress");
+        if (hovered != null)
+            hovered.SendMessage("OnPress");
     }
 
 	// Update is called once per frame

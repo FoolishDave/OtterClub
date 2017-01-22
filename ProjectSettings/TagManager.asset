@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Weapon
   - VRButton
+  - ControllerLeft
+  - ControllerRight
+  - Unity~Chan<3
+  - WallSpawn
+  - Draggable
+  - Grabbed
   layers:
   - Default
   - TransparentFX

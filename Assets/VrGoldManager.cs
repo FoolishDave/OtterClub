@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMoney : MonoBehaviour {
+public class VrGoldManager : MonoBehaviour {
 
     public static int cash = 0;
 
