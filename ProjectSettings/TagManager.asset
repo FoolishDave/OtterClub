@@ -4,14 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Draggable
-  - Grabbed
-<<<<<<< HEAD
-  - Spawnable
   - Unity~Chan<3
-=======
+  - Draggable
   - Weapon
->>>>>>> master
+  - ControllerRight
+  - ControllerLeft
+  - VRButton
   layers:
   - Default
   - TransparentFX
