@@ -16,13 +16,13 @@ public class EnemySpeedIncrease : MonoBehaviour {
     {
         Button btn = yourButton.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
-        baseCost = 300;
     }
 
 
     void TaskOnClick()
     {
-
+        if (PCGoldManager._pcGold < baseCost) return;
+        PCGoldManager._pcGold -= baseCost;
         //Debug.Log(sp._maxSpawnedEnemies);
         EnemyHealth.speed += 0.5f;
         baseCost = (int)((double)baseCost * 1.5);
