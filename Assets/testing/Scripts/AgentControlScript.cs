@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -35,6 +36,11 @@ public class AgentControlScript : MonoBehaviour {
         set { _target = value; }
     }
 
+    // <summary>
+    // Hack to get around navmesh problems
+    // </summary>
+    private bool flicked;
+
     /// <summary>
     /// Initializer for the agent control script
     /// </summary>
@@ -60,7 +66,14 @@ public class AgentControlScript : MonoBehaviour {
     /// <param name="position">sets the target position</param>
     public void setMovementTarget(Vector3 position)
     {
-        agent.destination = position;
+        if (!agent.isOnNavMesh)
+        {
+            Debug.Log("Flicking waifu");
+            gameObject.SetActive(false);
+            gameObject.SetActive(true);
+        }
+        Vector3 oldDest = agent.destination;
+        agent.SetDestination(position);        
     }
 
     /// <summary>
@@ -80,6 +93,12 @@ public class AgentControlScript : MonoBehaviour {
     /// </summary>
     private void Update()
     {
+        if (flicked)
+        {
+            flicked = false;
+            gameObject.SetActive(true);
+        }
+
         if (target != null)
         {
             setMovementTarget(target.transform.position);

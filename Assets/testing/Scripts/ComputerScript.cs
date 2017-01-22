@@ -45,7 +45,7 @@ public class ComputerScript : MonoBehaviour {
             if (hit && rayHit.collider.gameObject.tag == "Spawnable" && rayHit.collider.gameObject.tag != "Unity~Chan<3")
             {
                 selectedUnit.Clear();
-                Vector3 newPosition = rayHit.point;
+                Vector3 newPosition = rayHit.point - new Vector3(0, 0.2f, 0);
                 spawner.spawnEnemy(newPosition);
             }
             else if (hit && rayHit.collider.gameObject.tag == "Unity~Chan<3" && !ComputerScript.menuActive)
