@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour {
 
-    public float health;
+    public static float health;
     public float baseDamage; 
 
     public Collider critical;
     public Collider normal;
 
     public SteamVR_TrackedController hitController;
+
+    public float _health
+    {
+        get { return _health; }
+        set { _health = value; }
+    }
 
 	void OnTriggerEnter(Collider col)
     {
