@@ -51,13 +51,15 @@ public class WaveSystem : MonoBehaviour {
         VrShop.SetActive(false);
         PcShop.SetActive(false);
         downTiming = false;
+        PCReady = false;
+        VRReady = false;
     }
 
     public void DownTime()
     {
         
         PcScript.spawningEnabled = false;
-        downTimer = 100;
+        downTimer = 5;
         downTiming = true;
         PCReady = false;
         VRReady = false;

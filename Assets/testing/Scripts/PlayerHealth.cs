@@ -6,4 +6,10 @@ public class PlayerHealth : MonoBehaviour {
     
     public float health;
     public float maxHealth;
+
+    private void Awake()
+    {
+        playerHealth = this;
+        health = maxHealth;
+    }
 }
