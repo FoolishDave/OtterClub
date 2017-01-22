@@ -4,15 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Unity~Chan<3
-<<<<<<< HEAD
-=======
-  - Draggable
   - Weapon
-  - ControllerRight
-  - ControllerLeft
   - VRButton
->>>>>>> refs/remotes/origin/master
   layers:
   - Default
   - TransparentFX

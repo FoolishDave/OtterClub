@@ -12,16 +12,13 @@ public class MenuControl : MonoBehaviour {
     /// </summary>
     public GameObject menu;
 
-<<<<<<< HEAD
 
 
     /// <summary>
     /// On launch ensure the menu is set to inactive
     /// </summary>
-	void Start()
-=======
+
     private void Start()
->>>>>>> refs/remotes/origin/master
     {
         ComputerScript.menuActive = false;
         menu.SetActive(false);

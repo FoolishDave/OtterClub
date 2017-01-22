@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour {
 
-    public static float health;
+    public float health;
     public float baseDamage; 
 
     public Collider critical;
@@ -14,8 +14,13 @@ public class EnemyHealth : MonoBehaviour {
 
     public float _health
     {
-        get { return _health; }
-        set { _health = value; }
+        get { return health; }
+        set { health = value; }
+    }
+    public float _baseDamage
+    {
+        get { return baseDamage; }
+        set { baseDamage = value; }
     }
 
 	void OnTriggerEnter(Collider col)
