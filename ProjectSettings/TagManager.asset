@@ -4,14 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Draggable
-  - Grabbed
-<<<<<<< HEAD
-  - Spawnable
   - Unity~Chan<3
-=======
-  - Weapon
->>>>>>> master
+  - Spawnable
+  - Grabbed
+  - Draggable
   layers:
   - Default
   - TransparentFX
