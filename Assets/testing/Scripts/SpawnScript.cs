@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -12,7 +11,9 @@ public class SpawnScript : MonoBehaviour {
     /// </summary>
     public GameObject spawnedEnemy;
 
-    // Manages the three states of enemies, not spawned, spawned and defeated
+    /// <summary>
+    /// These three lists manage the enemies not yet spawned, spawned and dead.
+    /// </summary>
     private List<GameObject> enemiesNotSpawned;
     private List<GameObject> enemiesSpawned;
     private List<GameObject> defeatedEnemies;
@@ -95,7 +96,7 @@ public class SpawnScript : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Max spawnable enemies reached.");
+            Debug.Log("Senpai, stop looking at other women.");
         }
     }
 

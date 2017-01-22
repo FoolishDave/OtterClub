@@ -79,6 +79,7 @@ public class SapphiArtChan_AnimManager : MonoBehaviour {
         }
         _SapphiArtChanRenderer_Tongue.enabled = false;
         _SapphiArtChanRenderer_TopTeeth.enabled = false;
+        _SapphiArtChanAnimation = "idle";
     }
 
 

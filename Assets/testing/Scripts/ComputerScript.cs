@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class ComputerScript : MonoBehaviour {
@@ -15,8 +14,6 @@ public class ComputerScript : MonoBehaviour {
     /// </summary>
     [SerializeField]
     public float attackDistance = 2f;
-
-    private GameObject playerCharacter;
 
     /// <summary>
     /// The selected enemy to control
