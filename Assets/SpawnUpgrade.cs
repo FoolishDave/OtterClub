@@ -9,6 +9,7 @@ public class SpawnUpgrade : MonoBehaviour {
     /// </summary>
     public Button yourButton;
     public SpawnScript spawner;
+    public int baseCost;
     // Use this for initialization
     void Start () {
         Button btn = yourButton.GetComponent<Button>();
@@ -17,8 +18,11 @@ public class SpawnUpgrade : MonoBehaviour {
     
     void TaskOnClick()
     {
+        if (PCGoldManager._pcGold < baseCost) return;
+        PCGoldManager._pcGold -= baseCost;
 
         //Debug.Log(sp._maxSpawnedEnemies);
+        baseCost = (int)((double)baseCost * 1.5);
         Debug.Log(spawner.maxSpawnedEnemies);
         spawner.maxSpawnedEnemies = spawner.maxSpawnedEnemies+1;
         Debug.Log(spawner.maxSpawnedEnemies);

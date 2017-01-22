@@ -10,6 +10,10 @@ public class ReadyButton : MonoBehaviour {
     public void OnPress()
     {
         ready = !ready;
+        if (ready)
+            GetComponent<Renderer>().material.color = Color.green;
+        else
+            GetComponent<Renderer>().material.color = Color.white;
         waveSys.VRConfirmReady(ready);
     }
 }
