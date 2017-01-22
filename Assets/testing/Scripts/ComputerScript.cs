@@ -66,6 +66,7 @@ public class ComputerScript : MonoBehaviour {
             // Check if there is a hit
             if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out rayHit, 100))
             {
+                Debug.Log("The tag is: " + rayHit.collider.tag + " " + rayHit.collider.gameObject.transform.name);
                 hit = true;
             }
 

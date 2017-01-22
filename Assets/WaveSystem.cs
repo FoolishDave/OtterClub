@@ -57,7 +57,7 @@ public class WaveSystem : MonoBehaviour {
     {
         
         PcScript.spawningEnabled = false;
-        downTimer = 100;
+        downTimer = 5;
         downTiming = true;
         PCReady = false;
         VRReady = false;

@@ -61,7 +61,6 @@ public class AgentControlScript : MonoBehaviour {
 
     /// <summary>
     /// Attacks the target if withing range
-    /// TODO:
     /// </summary>
     /// <param name="position">sets the target position</param>
     public void setMovementTarget(Vector3 position)
