@@ -51,6 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f5b85c6ae28ca429b603e091c042c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnedEnemy: {fileID: 100096, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}
+  spawnedEnemy: {fileID: 100338, guid: 40046bae76ac54bffb59f14f47d9ba1b, type: 2}
   _totalEnemiesSpawned: 0
-  _maxSpawnedEnemies: 10
+  _maxSpawnedEnemies: 50

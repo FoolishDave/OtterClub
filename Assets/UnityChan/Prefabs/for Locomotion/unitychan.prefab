@@ -2578,6 +2578,8 @@ GameObject:
   - component: {fileID: 195064549829614440}
   - component: {fileID: 114213196542430536}
   - component: {fileID: 114487980716391836}
+  - component: {fileID: 114413542890179852}
+  - component: {fileID: 135266159051015486}
   m_Layer: 0
   m_Name: unitychan
   m_TagString: Unity~Chan<3
@@ -3285,7 +3287,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5.8569903, y: -0.88, z: 1.7535915}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400224}
@@ -3330,7 +3332,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100104}
-  m_LocalRotation: {x: -0.09374654, y: 0.6978552, z: 0.70746905, w: 0.060806755}
+  m_LocalRotation: {x: -0.093746535, y: 0.6978551, z: 0.707469, w: 0.060806744}
   m_LocalPosition: {x: -0.05543403, y: 0.0017306843, z: 0.098653734}
   m_LocalScale: {x: 1.0000004, y: 1.0000006, z: 1.0000005}
   m_Children:
@@ -5199,10 +5201,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.5
+  m_Radius: 0.25
+  m_Height: 1.25
   m_Direction: 1
-  m_Center: {x: 0, y: 0.75, z: 0}
+  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -6574,6 +6576,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 853d2dc85e1fd8045b0326ef909c7886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  acceptableDistance: 2
+--- !u!114 &114413542890179852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f5f6057e5e3e0e409b1e452422087a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  baseDamage: 40
+  critical: {fileID: 135266159051015486}
+  normal: {fileID: 13600000}
+  hitController: {fileID: 0}
 --- !u!114 &114487980716391836
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6593,6 +6612,18 @@ MonoBehaviour:
   backwardSpeed: 2
   rotateSpeed: 2
   jumpPower: 3
+--- !u!135 &135266159051015486
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100338}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 1.32, z: 0}
 --- !u!195 &195064549829614440
 NavMeshAgent:
   m_ObjectHideFlags: 1

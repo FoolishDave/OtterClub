@@ -90,6 +90,8 @@ public class SpawnScript : MonoBehaviour {
             enemiesNotSpawned.Remove(spawningEnemy);
             spawningEnemy.SetActive(true);
             spawningEnemy.transform.position = position;
+            spawnedEnemy.SetActive(false);
+            spawnedEnemy.SetActive(true);
         }
         else
         {
